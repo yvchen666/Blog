@@ -33,6 +33,7 @@ const blogConfig = {
 	article: {
 		categories: {
 			[basicConfig.defaultCategory]: { icon: 'tabler:circle-dashed' },
+			笔记: { icon: 'tabler:notebook', color: '#e6a23c' },
 			/** 实践可复用操作经验：工具/系统/部署/排障 */
 			技术: { icon: 'tabler:mouse', color: '#33aaff' },
 			/** 编程：代码实现/工程实践/开发方法 */
