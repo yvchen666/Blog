@@ -2,7 +2,7 @@
 title: "QProcess 启动流程"
 description: "是 QProcess 实现中非常关键的部分，用于启动子进程。 它包含了 fork()、管道创建和 exec() 准备等步骤。 openChann…"
 date: 2025-06-01 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["Qt"]
 type: tech

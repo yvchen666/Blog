@@ -2,7 +2,7 @@
 title: "QEventLoop"
 description: "QEventLoop 是 Qt 事件循环的核心，它的本质就是一个循环，负责： 1. 获取事件： 从事件队列（Event Queue）中获取事件"
 date: 2025-06-01 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["Qt"]
 type: tech

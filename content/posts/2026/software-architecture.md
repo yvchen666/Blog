@@ -2,7 +2,7 @@
 title: "软件设计与架构模式"
 description: "An introduction to Software Architecture 定义好接口 应对需求的变化 快速响应 ：组件以及组件之间的关系…"
 date: 2025-06-01 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["架构"]
 type: tech

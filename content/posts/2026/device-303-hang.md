@@ -2,7 +2,7 @@
 title: "303 设备软件卡死"
 description: "在9.28日下午16：30左右，出现多次卡死情况，最后一次卡死是检测软件点击运行卡死 1.通过对9.28日下午16：30分左右软件卡死日志分析…"
 date: 2024-09-29 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["排障"]
 type: tech
@@ -17,15 +17,25 @@ type: tech
 
 1.通过对9.28日下午16：30分左右软件卡死日志分析
 
+![image-20240929142718441](/images/notes/assets/303%E8%AE%BE%E5%A4%87%E8%BD%AF%E4%BB%B6%E5%8D%A1%E6%AD%BB/image-20240929142718441.png)
+
 最后日志打印时间为16：36分 与FAE提供的卡死时间对应 查看相应代码得知：
 
 输出最后一条日之后，会打印显卡信息，而没有**后续日志输出可知在该位置卡死**
+
+![image-20240929142732069](/images/notes/assets/303%E8%AE%BE%E5%A4%87%E8%BD%AF%E4%BB%B6%E5%8D%A1%E6%AD%BB/image-20240929142732069.png)
 
 2.通过对9.29上午11.10分左右现场卡死远程分析
 
  **现场出现编辑软件卡死**的情况，查看资源管理器发现**单核CPU跑满，此时最高占用为nvidia-smi**
 
+![image-20240929142745713](/images/notes/assets/303%E8%AE%BE%E5%A4%87%E8%BD%AF%E4%BB%B6%E5%8D%A1%E6%AD%BB/image-20240929142745713.png)
+
+![image-20240929142755417](/images/notes/assets/303%E8%AE%BE%E5%A4%87%E8%BD%AF%E4%BB%B6%E5%8D%A1%E6%AD%BB/image-20240929142755417.png)
+
 **验证：命令行中输入对应命令无法正确输出完整信息**
+
+![image-20240929142804273](/images/notes/assets/303%E8%AE%BE%E5%A4%87%E8%BD%AF%E4%BB%B6%E5%8D%A1%E6%AD%BB/image-20240929142804273.png)
 
 ## 排查显卡问题
 

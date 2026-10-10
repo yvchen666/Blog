@@ -2,7 +2,7 @@
 title: "Linux AppImage 安装"
 description: "在Appimage所在目录打开终端 得到squashfs-root目录 其中xxx为自定义的文件夹名 新建一个desktop文件 命名为xxxx…"
 date: 2025-06-01 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["Linux"]
 type: tech

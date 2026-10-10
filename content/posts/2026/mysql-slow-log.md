@@ -2,7 +2,7 @@
 title: "MySQL 慢日志配置"
 description: "东岱机器A在切换板式时卡死但是无闪退，卡死时通过gdb调试查看调用堆栈发现在调用databaserpc时耗时过长，通过databserpc日志看…"
 date: 2024-11-07 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["数据库", "MySQL"]
 type: tech
@@ -27,15 +27,21 @@ type: tech
 
 在  `/etc/mysql/mysql.conf.d`  目录下的 `mysqld.cnf` 文件中 找到慢查询配置并复制一份
 
+![image-20241107195440282](/images/notes/assets/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%85%A2%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE/image-20241107195440282.png)
+
 ### 记录两个坑：
 
 #### 1.配置了注释的三个慢查询配置，但是在指定目录下生成的文件内容如下：
+
+![image-20241107195644248](/images/notes/assets/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%85%A2%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE/image-20241107195644248.png)
 
 是因为配置了这三个还不够 需要加上
 
 **`log_output`** 表示慢日志输出的方式  （可选项为  FILE TABLE  都选用,隔开）
 
 #### 2.配置到自定义目录，发现无法在指定的目录生成日志文件，查看MYSQL日志如下：
+
+![image-20241107200123289](/images/notes/assets/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%85%A2%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE/image-20241107200123289.png)
 
 没有权限，方便起见使用默认目录即可
 
@@ -157,6 +163,8 @@ LIMIT 1000;
 ```
 
 结果如下：
+
+![image-20241107200929309](/images/notes/assets/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%85%A2%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE/image-20241107200929309.png)
 
 ## 3、查看日志记录结果
 

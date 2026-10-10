@@ -2,7 +2,7 @@
 title: "TCP粘包"
 description: "1. ### TCP 是字节流 协议本身不保留消息边界，内核为了提升吞吐量： 发送方：Nagle/TSO/GSO 会把多次 write() 合并…"
 date: 2025-07-22 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["网络", "TCP"]
 type: tech

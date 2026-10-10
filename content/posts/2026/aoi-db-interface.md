@@ -2,7 +2,7 @@
 title: "203 aoidbinterface 问题梳理"
 description: "在将203主软件适配新数据库时 develop项目可以编译通过，203项目的aoidbinterface模块拉取的是 develop项目对应的分…"
 date: 2025-06-01 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["排障", "数据库"]
 type: tech
@@ -14,6 +14,8 @@ type: tech
 在将203主软件适配新数据库时   develop项目可以编译通过，203项目的aoidbinterface模块拉取的是 develop项目对应的分支
 
 切换aoideinterface为f1a4e855时，构建后报错
+
+![default](/images/notes/assets/203%20aoidbinterface%E9%97%AE%E9%A2%98%E6%A2%B3%E7%90%86/default.jpeg)
 
 ## 首先自己分析了报错可能的原因
 

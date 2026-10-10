@@ -2,7 +2,7 @@
 title: "VTK库编译相关"
 description: "在编译主软件时报错 -libvtk.so找不到 原因出现在3dglwidget.pri这个配置文件中 在/usr/local/lib中找不到so…"
 date: 2024-07-23 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["VTK", "编译"]
 type: tech
@@ -12,6 +12,8 @@ type: tech
 ## 情况
 
 在编译主软件时报错 -libvtk*.so找不到
+
+![image-20240723115508376](/images/notes/assets/VTK%E5%BA%93%E7%BC%96%E8%AF%91%E7%9B%B8%E5%85%B3/image-20240723115508376.png)
 
 原因出现在3dglwidget.pri这个配置文件中
 

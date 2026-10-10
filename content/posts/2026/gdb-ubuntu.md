@@ -2,7 +2,7 @@
 title: "Ubuntu 18.04 GDB调试工具使用指南"
 description: "记录PID（示例中为12345） 示例：sudo gdb -p 12345 1. attach模式： 输入continue后恢复运行 必须先de…"
 date: 2025-06-01 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["GDB", "调试", "Linux"]
 type: tech

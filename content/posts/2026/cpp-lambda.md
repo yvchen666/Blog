@@ -2,7 +2,7 @@
 title: "Lambda表达式"
 description: "Lambda 表达式的本质是编译器自动生成的一个匿名类（或结构体），并创建该类的一个临时对象。这个类重载了函数调用运算符 operator()"
 date: 2025-06-01 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["C++", "Lambda"]
 type: tech

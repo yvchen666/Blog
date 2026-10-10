@@ -1,8 +1,8 @@
 ---
 title: "VS Code 快捷键"
-description: "整理自以前的笔记。"
+description: "功能 | Windows/Linux | macOS :------------------ | :------------------- |…"
 date: 2025-06-01 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["VS Code", "工具"]
 type: tech

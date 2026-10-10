@@ -2,7 +2,7 @@
 title: "条码漏失率"
 description: "需要在拍照前扫码 条码枪扫码超时的时候，记录该板卡条码漏失至数据库 1. 在弹出条码补录时，记录补录的条码 存入context 1. 在deal…"
 date: 2025-06-01 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["需求"]
 type: tech
@@ -34,6 +34,8 @@ graph LR
 1. 需要查看context的清除时机 到底是清除的，还是重新创建的
 
 在每一次开始拍照时 new出的context
+
+![](/images/notes/Work/vx_images/67022316298498.png)
 
 1. 不能向BarcodeManager中添加业务
 Barcodemanager用作条码扫描的缓存记录，在其中加入业务会影响后续的开发，评估后仍写入context

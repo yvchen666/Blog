@@ -2,7 +2,7 @@
 title: "数据库方案"
 description: "当前架构大致分为四个模块组成：Inspector RepaireService DatabaseRpcService Mysql Inspect…"
 date: 2025-09-19 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["数据库", "架构"]
 type: tech
@@ -152,6 +152,8 @@ sequenceDiagram
 
 ### 原因分析：
 
+![image-20250919110832778](/images/notes/assets/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%B9%E6%A1%88/image-20250919110832778.png)
+
 a) 检测软件维护了一个client池，上限是6个，当所有的连接都busy时，就会在日志中打印**get a busy client**，此时应该返回一个空对象，让上层处理，但是目前的代码是**继续返回一个busy的client**。
 
 b) 在连接池的使用上，存在易用性差的问题
@@ -184,9 +186,13 @@ bool DatabaseClient::queryProjectInfos(QMap<int, AoiProjectInfoRpc> &project_map
 
 databaserpcservice中，连接池的设计也存在问题
 
+![image-20250922102210479](/images/notes/assets/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%B9%E6%A1%88/image-20250922102210479.png)
+
 每次调用acquireDatabase函数，试图获取QSqlDatabase连接时，逻辑存在漏洞
 
 原逻辑是：首先遍历map，获取可用的连接，如果没有可用的连接，就新建一个连接，然后放入map，当存在有连接没有释放的情况下，就会无限增长。
+
+![image-20250922102507739](/images/notes/assets/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%B9%E6%A1%88/image-20250922102507739.png)
 
 并且在Qt官方文档中，明确的表示了，**一个QSqlDatabase实例必须仅由创建它的线程访问。**
 
@@ -198,19 +204,33 @@ a）在现有的sql语句中，查询几乎都是“耿直”查询：
 
 在统计信息，查找TopTen料号时，直接用大量的数据拼接sql语句：
 
+![image-20250925101124787](/images/notes/assets/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%B9%E6%A1%88/image-20250925101124787.png)
+
 查询语句如下：
+
+![image-20250925101343938](/images/notes/assets/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%B9%E6%A1%88/image-20250925101343938.png)
+
+![1885f7391b09ce5eda9af06e1a2b31db](/images/notes/assets/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%B9%E6%A1%88/1885f7391b09ce5eda9af06e1a2b31db.jpg)
 
 按一个字符‘1’，占用两字节来算，一条66270个字符的SQL语句，占用129.43 KB
 
 b）数据库服务部分语句会捞取大量数据，占用大量内存
 
+![image-20250925103333148](/images/notes/assets/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%B9%E6%A1%88/image-20250925103333148.png)
+
+![image-20250926095932099](/images/notes/assets/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%B9%E6%A1%88/image-20250926095932099.png)
+
 c）sql语句查询很多与开始统计时间有关，当时间跨度大时，所扫描的行数多，耗时长。
 
 一条语句，要从1000w的板卡表中查询时，全命中的情况下耗时10min+
 
+![image-20250926101114361](/images/notes/assets/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%B9%E6%A1%88/image-20250926101114361.png)
+
 ## 4.流程中存在旧数据库逻辑
 
 最新的检测软件已经将旧数据库屏蔽，但是在检测软件的执行流程中，仍存在很多流程会执行旧数据库的查询，但是后续又没有使用到查询的数据，浪费性能。
+
+![image-20250926101933133](/images/notes/assets/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%B9%E6%A1%88/image-20250926101933133.png)
 
 # 解决方案
 
@@ -372,6 +392,8 @@ sequenceDiagram
 由于QSqlDatabase实例必须仅由创建它的线程访问，所以使用Qt的QThreadStorage，保证每个线程（每个Service工作线程）有自己的连接桶，存贮有自己创建的QSqlDatabase连接。
 
 QSqlDatabase的连接真实由QSqlDatabase内部实现的全局连接字典管理
+
+![image-20250926151743740](/images/notes/assets/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%B9%E6%A1%88/image-20250926151743740.png)
 
 ### 时序图
 

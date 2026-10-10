@@ -1,8 +1,8 @@
 ---
 title: "IPC-Hermes 接入交接"
-description: "JSON Body 关键字段："
+description: "JSON Body 关键字段： TYPE | 消息类型（HEARTBEAT / DEVICESTATUSREPROT / RESULTREPRO…"
 date: 2025-06-01 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["交接", "IPC"]
 type: tech

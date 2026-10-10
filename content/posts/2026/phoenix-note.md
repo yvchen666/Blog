@@ -2,7 +2,7 @@
 title: "菲尼克斯"
 description: "客户反馈开启Hermes正常使用，每隔大约半小时就会存在不进板的现象，影响客户IPC验收 Hermes标准严格控制上游（客户PLC）和下游（AO…"
 date: 2025-12-16 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["排障"]
 type: tech

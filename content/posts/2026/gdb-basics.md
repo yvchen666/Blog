@@ -2,7 +2,7 @@
 title: "GDB调试问题初步定位命令"
 description: "进入gdb调试(pid为进程号) PS：需要注意一定要sudo PS：附加调试后会有一段时间在加载，此时是无法操作的，需要等待直到可以输出 如图…"
 date: 2025-01-02 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["GDB", "调试"]
 type: tech
@@ -16,6 +16,8 @@ sudo gdb attach pid
 ```
 
 PS：附加调试后会有一段时间在加载，此时是无法操作的，需要等待直到可以输出 如图所示：
+
+![image-20250102111931406](/images/notes/assets/GDB/image-20250102111931406.png)
 
 ## 卡死问题
 
@@ -52,6 +54,8 @@ c
 **对于难以复现的“珍贵”现场**，可以使用核心转储命令，生成的文件目录位于进入gdb前的目录位置，文件**后缀为.core**
 
 提供转储文件的同时**需要提供软件对应的hash值和版本号**例如：
+
+![image-20250102112802016](/images/notes/assets/GDB/image-20250102112802016.png)
 
 ```bash
 generate-core-file

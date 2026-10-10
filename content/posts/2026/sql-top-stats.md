@@ -2,7 +2,7 @@
 title: "统计查询性能优化"
 description: "tbboard 表约 1000 万行。 tbcomponentpadYYYYMMindex 分表合计约 50 万行。 Top 查询接口（位号、误…"
 date: 2025-06-01 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["数据库", "性能"]
 type: tech

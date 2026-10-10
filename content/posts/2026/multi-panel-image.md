@@ -2,7 +2,7 @@
 title: "保存多拼板图像"
 description: "增加功能把每个拼板图片都存起来,并且文件名要符合一定的规则。 使用前需要在离线编辑中勾选需要保存的光源 图片名字:选择保存图像文件的文件名规则…"
 date: 2025-06-30 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["功能说明"]
 type: tech
@@ -17,7 +17,11 @@ type: tech
 
 使用前需要在离线编辑中勾选需要保存的光源
 
+![image-20250630170022436](/images/notes/assets/%E4%BF%9D%E5%AD%98%E5%A4%9A%E6%8B%BC%E6%9D%BF%E5%9B%BE%E5%83%8F%E5%8A%9F%E8%83%BD%E8%AF%B4%E6%98%8E/image-20250630170022436.png)
+
 后在检测软件中设置：
+
+![image-20250630165656743](/images/notes/assets/%E4%BF%9D%E5%AD%98%E5%A4%9A%E6%8B%BC%E6%9D%BF%E5%9B%BE%E5%83%8F%E5%8A%9F%E8%83%BD%E8%AF%B4%E6%98%8E/image-20250630165656743.png)
 
 以下是开关功能解释:
 

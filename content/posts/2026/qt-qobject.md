@@ -2,7 +2,7 @@
 title: "QObject"
 description: "首先是定义QOBJECT 宏，宏展开会添加一个静态QMetaObject 定义 获取它的方法metaObject qtmetacast （目前不…"
 date: 2025-06-01 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["Qt"]
 type: tech

@@ -2,7 +2,7 @@
 title: "Inspector 203 编译配置"
 description: "因为203与其他不一样 如果之前已经安装过对应软件 则需要重新安装 正确的libcurl.so.4路径"
 date: 2024-07-15 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["编译"]
 type: tech
@@ -51,6 +51,8 @@ sudo mv /usr/local/miniconda3/lib/libcurl.so.4 /usr/local/miniconda3/lib/libcurl
 ldd /home/aoi/project/203/inspector/src/libs/qtaoi/qtaoihardware/src/aoihardware/rfidset/sickrfid/lib/libRfidSickRH510.so
 
 ```
+
+![image-20240715115258460](/images/notes/assets/203%E7%BC%96%E8%AF%91%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/image-20240715115258460.png)
 
 正确的libcurl.so.4路径
 

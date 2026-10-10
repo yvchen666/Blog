@@ -2,7 +2,7 @@
 title: "切换程序卡死与延时出板"
 description: "1.[ATAOI2019-34325](https://jira.cvte.com/browse/ATAOI2019-34325)主软件检测时切…"
 date: 2024-11-06 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["排障", "数据库"]
 type: tech
@@ -21,9 +21,13 @@ type: tech
 
 具体rpcservice 代码
 
+![image-20241106110856820](/images/notes/assets/%E4%B8%9C%E5%B2%B1/image-20241106110856820.png)
+
 传递的时间戳如果在不清除的情况下查询数据量过多，导致查询时间慢（临时方案点击检测软件统计界面的清除，会在板式文件夹下生成一个文件更新时间戳）
 
 清除后未出现卡死情况
+
+![databseservice_QueryBoardCount](/images/notes/assets/%E4%B8%9C%E5%B2%B1/databseservice_QueryBoardCount.png)
 
 **2.[ATAOI_2019-34279](https://jira.cvte.com/browse/ATAOI_2019-34279)设置为在机器外复判，板子检测出完结果还会延迟3-4s才出板，此现象为偶发**
 
@@ -40,6 +44,8 @@ select sum(pass_cnt), sum(ng_cnt), sum(false_cnt) from tb_board where project_id
 **综上所述，确定问题点为数据库查询时间过长导致。**
 
 ## 分析问题原因
+
+![image-20241111085409762](/images/notes/assets/%E4%B8%9C%E5%B2%B1/image-20241111085409762.png)
 
 首先通过现场的慢日志确定查询慢的sql语句，
 

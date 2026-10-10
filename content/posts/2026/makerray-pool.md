@@ -2,7 +2,7 @@
 title: "MakerRay RPC 连接池"
 description: "依赖: restrpc::rpcclient, Qt (QString / QDebug), C++ 标准库 (unorderedmap, ve…"
 date: 2025-06-01 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["设计", "网络"]
 type: tech

@@ -2,7 +2,7 @@
 title: "虚拟相机配置"
 description: "虚拟相机的配置方法是配置Hardware.xml 的 HardwareDeviceType字段 在配置文件中加入 supportSpi.ini…"
 date: 2025-06-01 12:00:00
-updated: 2026-10-10 16:40:00
+updated: 2026-10-10 16:55:00
 categories: [笔记]
 tags: ["工具"]
 type: tech
