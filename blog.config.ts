@@ -20,7 +20,7 @@ const basicConfig = {
 	language: 'zh-CN',
 	timeEstablished: '2026-10-10',
 	timeZone: 'Asia/Shanghai',
-	url: 'http://localhost:3000/',
+	url: 'https://blog.1821383696.workers.dev/',
 	defaultCategory: '未分类',
 }
 
