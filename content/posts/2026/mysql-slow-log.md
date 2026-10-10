@@ -168,7 +168,7 @@ LIMIT 1000;
 
 ## 3、查看日志记录结果
 
-<img src="/home/aoi/文档/note/assets/数据库慢日志配置/image-20241107200943481.png" alt="image-20241107200943481" style="zoom:200%;" />
+![image-20241107200943481](/images/notes/assets/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%85%A2%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE/image-20241107200943481.png)
 
 ```
 # Time: 2024-11-07T10:07:18.802512Z

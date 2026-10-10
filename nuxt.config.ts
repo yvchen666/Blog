@@ -226,9 +226,9 @@ ${packageJson.homepage}
 		// 尽量以这些密度点对点显示
 		densities: [1, 1.5, 2],
 		format: ['avif', 'webp'],
-		// Neylify 下 netlify 处理器无法显示站外图片，ipx 处理器无法显示站内图片，需彻底禁用
+		// 静态站点没有 IPX 运行时。预渲染时中文图片路径也会被 IPX 判成找不到，导致整次构建失败。
 		// https://github.com/nuxt/image/issues/1353
-		provider: NETLIFY ? 'none' : undefined,
+		provider: NETLIFY || CLOUDFLARE_PAGES || env.WORKERS_CI || env.npm_lifecycle_event === 'generate' ? 'none' : undefined,
 	},
 
 	linkChecker: {
