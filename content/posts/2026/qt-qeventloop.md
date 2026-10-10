@@ -1,13 +1,13 @@
 ---
 title: "QEventLoop"
-description: "QEventLoop 是 Qt 事件循环的核心，它的本质就是一个循环，负责： 1. 获取事件： 从事件队列（Event Queue）中获取事件"
+description: "事件循环就是取事件、发给对象、再处理对象里新产生的事件。"
 date: 2025-06-01 12:00:00
-updated: 2026-10-10 16:55:00
+updated: "2026-10-10 17:40:00"
 categories: [笔记]
 tags: ["Qt"]
 type: tech
 ---
-# QEventloop
+# QEventLoop
 ## QEventLoop的本质
 QEventLoop 是 Qt 事件循环的核心，它的本质就是一个循环，负责：
 1. **获取事件：** 从事件队列（Event Queue）中获取事件。
@@ -179,3 +179,10 @@ int main(int argc, char *argv[]) {
 }
 
 ```
+
+## 知识总结
+
+- 事件循环就是取事件、发给对象、再处理对象里新产生的事件。
+- processEvents 可以在一段长操作里把已经排队的事件处理掉，但重入要小心。
+- 嵌套的 QEventLoop 会让外层还没结束的函数再被调用，状态容易乱。
+- 能用信号槽异步做完的事，就不要在槽函数里再开一个局部事件循环死等。

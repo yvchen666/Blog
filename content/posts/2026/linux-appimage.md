@@ -1,13 +1,13 @@
 ---
 title: "Linux AppImage 安装"
-description: "在Appimage所在目录打开终端 得到squashfs-root目录 其中xxx为自定义的文件夹名 新建一个desktop文件 命名为xxxx…"
+description: "AppImage 可以用 --appimage-extract 解出来，再放到固定目录。"
 date: 2025-06-01 12:00:00
-updated: 2026-10-10 16:55:00
+updated: "2026-10-10 17:40:00"
 categories: [笔记]
 tags: ["Linux"]
 type: tech
 ---
-# Linux AppImage安装
+# Linux AppImage 安装
 ## 解压安装包
 在Appimage所在目录打开终端
 ```bash
@@ -44,3 +44,10 @@ mv xxxx.desktop /usr/share/applications/
 ```
 
 最后完成AppImage应用到桌面快捷应用的安装
+
+## 知识总结
+
+- AppImage 可以用 --appimage-extract 解出来，再放到固定目录。
+- 桌面入口是一个 .desktop 文件，里面写可执行文件的绝对路径。
+- 目录名和显示名可以自己定，和图标路径分开检查。
+- 更新版本时替换目录里的文件，桌面入口一般不用改。

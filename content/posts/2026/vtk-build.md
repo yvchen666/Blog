@@ -1,17 +1,17 @@
 ---
-title: "VTK库编译相关"
-description: "在编译主软件时报错 -libvtk.so找不到 原因出现在3dglwidget.pri这个配置文件中 在/usr/local/lib中找不到so…"
+title: "找不到 VTK 动态库"
+description: "链接器说找不到库，先看工程文件写的搜索路径，再看那个目录里有没有对应版本。"
 date: 2024-07-23 12:00:00
-updated: 2026-10-10 16:55:00
+updated: "2026-10-10 17:40:00"
 categories: [笔记]
 tags: ["VTK", "编译"]
 type: tech
 ---
-# VTK库编译相关
+# 找不到 VTK 动态库
 
 ## 情况
 
-在编译主软件时报错 -libvtk*.so找不到
+在编译程序时报错 -libvtk*.so找不到
 
 ![image-20240723115508376](/images/notes/assets/VTK%E5%BA%93%E7%BC%96%E8%AF%91%E7%9B%B8%E5%85%B3/image-20240723115508376.png)
 
@@ -61,3 +61,10 @@ scp -r aoi@172.18.134.116:/usr/local/include/vtk-8.2 /usr/local/include
 ```
 
 链接 相关知识
+
+## 知识总结
+
+- 链接器说找不到库，先看工程文件写的搜索路径，再看那个目录里有没有对应版本。
+- 系统目录和自己编译的安装前缀经常不是同一个地方。
+- 版本对不上时，重新编译并安装到工程正在找的目录。
+- 装完用同一条链接命令再编一次，确认找的是新文件。

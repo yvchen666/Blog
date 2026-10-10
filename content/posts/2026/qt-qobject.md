@@ -1,13 +1,13 @@
 ---
-title: "QObject"
-description: "首先是定义QOBJECT 宏，宏展开会添加一个静态QMetaObject 定义 获取它的方法metaObject qtmetacast （目前不…"
+title: "QObject 的信号与槽"
+description: "Q_OBJECT 会让 moc 生成元对象，信号槽才能按名字和参数对上。"
 date: 2025-06-01 12:00:00
-updated: 2026-10-10 16:55:00
+updated: "2026-10-10 17:40:00"
 categories: [笔记]
 tags: ["Qt"]
 type: tech
 ---
-# QT
+# QObject 的信号与槽
 
 ## **Qt 如何将信号和槽转换为可调用的函数？**
 
@@ -297,3 +297,10 @@ qt_static_metacall()
 - **Qt::QueuedConnection**: 通过事件循环异步调用
 - **Qt::AutoConnection**: 根据线程关系自动选择
 - **Qt::BlockingQueuedConnection**: 阻塞等待跨线程调用完成
+
+## 知识总结
+
+- Q_OBJECT 会让 moc 生成元对象，信号槽才能按名字和参数对上。
+- 元数据里有字符串表和方法表，qt_static_metacall 负责真正调用。
+- 发信号并不是直接调用槽，而是走进元对象，再按连接类型决定在哪个线程执行。
+- 读生成代码时，先看元调用的两个分支：调用方法，和激活信号。

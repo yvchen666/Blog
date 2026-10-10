@@ -1,13 +1,13 @@
 ---
-title: "Ubuntu 18.04 GDB调试工具使用指南"
-description: "记录PID（示例中为12345） 示例：sudo gdb -p 12345 1. attach模式： 输入continue后恢复运行 必须先de…"
+title: "在 Ubuntu 上附加调试正在运行的进程"
+description: "先用进程号附加，不要为了调试把程序停掉重开，否则现场会丢。"
 date: 2025-06-01 12:00:00
-updated: 2026-10-10 16:55:00
+updated: "2026-10-10 17:40:00"
 categories: [笔记]
 tags: ["GDB", "调试", "Linux"]
 type: tech
 ---
-#  Ubuntu 18.04 GDB调试工具使用指南
+# 在 Ubuntu 上附加调试正在运行的进程
 
 ## 方法：使用`attach`附加到运行进程
 
@@ -112,3 +112,10 @@ Thread 1 "payment_service" received signal SIGINT, Interrupt.
 (gdb) quit
 user@ubuntu1804:~$
 ```
+
+## 知识总结
+
+- 先用进程号附加，不要为了调试把程序停掉重开，否则现场会丢。
+- 附加之后程序会停住，继续运行后再去复现卡死。
+- 复现后回到调试器打断，收集线程和调用栈。
+- 调试结束要 detach，避免进程一直被调试器占着。

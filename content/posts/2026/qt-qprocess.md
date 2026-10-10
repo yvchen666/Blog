@@ -1,13 +1,13 @@
 ---
 title: "QProcess 启动流程"
-description: "是 QProcess 实现中非常关键的部分，用于启动子进程。 它包含了 fork()、管道创建和 exec() 准备等步骤。 openChann…"
+description: "启动进程要先建好管道，再准备参数、环境和工作目录，最后才 fork/exec。"
 date: 2025-06-01 12:00:00
-updated: 2026-10-10 16:55:00
+updated: "2026-10-10 17:40:00"
 categories: [笔记]
 tags: ["Qt"]
 type: tech
 ---
-# QProcessPrivate::startProcess() 函数
+# QProcess 启动流程
 是 QProcess 实现中非常关键的部分，用于启动子进程。  它包含了 fork()、管道创建和 exec() 准备等步骤。
 
 ```Cpp
@@ -375,3 +375,10 @@ graph LR
     classDef processFill fill:#f0f0f0,stroke:#333,stroke-width:2px
 
 ```
+
+## 知识总结
+
+- 启动进程要先建好管道，再准备参数、环境和工作目录，最后才 fork/exec。
+- 程序路径找不到时，失败发生在子进程替换映像之前，父进程要能拿到这个错误。
+- 子进程里要关掉不该继承的文件描述符，避免把父进程的管道泄漏出去。
+- 父进程在启动失败后要清理管道和状态，不能停在“正在启动”。
