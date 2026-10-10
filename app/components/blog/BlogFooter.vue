@@ -9,7 +9,8 @@ const appConfig = useAppConfig()
 			<hgroup class="text-creative" v-text="group.title" />
 			<menu>
 				<li v-for="(item, itemIndex) in group.items" :key="itemIndex">
-					<UtilLink :to="item.url">
+					<BlogWechatQr v-if="item.action === 'wechat'" labeled />
+					<UtilLink v-else-if="item.url" :to="item.url">
 						<Icon :name="item.icon" />
 						<span class="nav-text">{{ item.text }}</span>
 					</UtilLink>

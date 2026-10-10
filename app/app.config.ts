@@ -60,7 +60,7 @@ export default defineAppConfig({
 			{ icon: 'tabler:home', text: '个人主页', url: blogConfig.author.homepage },
 			{ icon: 'tabler:brand-github', text: 'GitHub: yvchen666', url: 'https://github.com/yvchen666' },
 			{ icon: 'tabler:rss', text: 'Atom订阅', url: '/atom.xml' },
-			{ icon: 'ri:subway-line', text: '开往 - 博客下一站', url: 'https://www.travellings.cn/go.html' },
+			{ icon: 'tabler:brand-wechat', text: '微信', action: 'wechat' },
 		] satisfies NavItem[],
 		/** 页脚站点地图 */
 		nav: [
@@ -68,7 +68,7 @@ export default defineAppConfig({
 				title: '探索',
 				items: [
 					{ icon: 'tabler:rss', text: 'Atom订阅', url: '/atom.xml' },
-					{ icon: 'ri:subway-line', text: '开往', url: 'https://www.travellings.cn/go.html' },
+					{ icon: 'tabler:brand-wechat', text: '微信', action: 'wechat' },
 				],
 			},
 			{

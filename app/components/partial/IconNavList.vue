@@ -8,15 +8,17 @@ defineProps<{
 
 <template>
 <menu>
-	<UtilLink
-		v-for="{ text, icon, url } in list"
-		:key="text"
-		v-tip="text"
-		:to="url"
-		:aria-label="text"
-	>
-		<Icon :name="icon" />
-	</UtilLink>
+	<template v-for="{ text, icon, url, action } in list" :key="text">
+		<BlogWechatQr v-if="action === 'wechat'" />
+		<UtilLink
+			v-else-if="url"
+			v-tip="text"
+			:to="url"
+			:aria-label="text"
+		>
+			<Icon :name="icon" />
+		</UtilLink>
+	</template>
 </menu>
 </template>
 
@@ -25,7 +27,8 @@ menu {
 	display: flex;
 	justify-content: center;
 
-	a {
+	a,
+	:deep(.wechat-trigger) {
 		padding: 0.5em;
 		border-radius: 2em;
 		transition: background-color 0.2s;
