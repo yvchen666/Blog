@@ -4,9 +4,8 @@ import {
 	LazyBlogWidget,
 	LazyWidgetBlogLog,
 	LazyWidgetBlogStats,
-	LazyWidgetBlogTech,
 	LazyWidgetEmpty,
-	LazyWidgetGithub,
+	LazyWidgetTags,
 	LazyWidgetToc,
 } from '#components'
 
@@ -14,9 +13,8 @@ import {
 const rawWidgets = {
 	LazyWidgetBlogLog,
 	LazyWidgetBlogStats,
-	LazyWidgetBlogTech,
 	LazyWidgetEmpty,
-	LazyWidgetGithub,
+	LazyWidgetTags,
 	LazyWidgetToc,
 }
 

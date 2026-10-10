@@ -10,7 +10,9 @@ useSeoMeta({
 const { data: listRaw } = await useAsyncData('posts:index', () => queryArticleIndex(), { default: () => [] })
 const { listSorted, isAscending, sortOrder } = useArticleSort(listRaw, { bindDirectionQuery: 'asc', bindOrderQuery: 'sort' })
 const { category, categories, listCategorized } = useArticleCategory(listSorted, { bindQuery: 'category' })
-const { page, totalPages, listPaged } = usePagination(listCategorized, { bindQuery: 'page' })
+const tag = useHydratedQuery('tag', useRouteQuery('tag', undefined))
+const listTagged = computed(() => listCategorized.value.filter(item => !tag.value || item.tags?.includes(tag.value)))
+const { page, totalPages, listPaged } = usePagination(listTagged, { bindQuery: 'page' })
 
 useSeoMeta({ title: () => (page.value > 1 ? `第${page.value}页` : '') })
 
@@ -19,6 +21,11 @@ const listRecommended = computed(() => orderBy(
 	['recommend', 'date'],
 	['desc'],
 ))
+
+function resetPage() {
+	if (page.value > 1)
+		page.value = 1
+}
 
 const { data: previewCount } = useAsyncData(
 	'previews:count',
@@ -29,13 +36,12 @@ const { data: previewCount } = useAsyncData(
 <template>
 <template #aside>
 	<WidgetBlogStats />
-	<WidgetBlogTech />
-	<WidgetGithub />
+	<WidgetTags @pick="resetPage" />
 </template>
 
 <BlogHeader class="hide-above-mobile" to="/" tag="h1" />
 
-<PostSlide v-if="listRecommended.length && page === 1 && !category" :list="listRecommended" />
+<PostSlide v-if="listRecommended.length && page === 1 && !category && !tag" :list="listRecommended" />
 
 <div class="post-list">
 	<PostOrderToggle
